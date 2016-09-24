@@ -25,7 +25,7 @@ public class DocumentReader {
 	private int currentFileIndex = 0;
 	private NodeList docsInCurrentFile;
 	private int currentDocIndex = 0;
-	int noOfFilesRead = 0;
+	private int noOfFilesRead = 0;
 	
 	public DocumentReader(String inputPath) throws Exception{
 		filenames = new ArrayList<>();
@@ -65,7 +65,7 @@ public class DocumentReader {
 
 		FileInputStream fis = new FileInputStream(file);
 		XMLInputStream xis = new XMLInputStream(fis);
-		System.out.println(file.getName());
+		System.out.println("Reading: " + file.getName());
 		noOfFilesRead++;
 		
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -108,6 +108,10 @@ public class DocumentReader {
 				return null;
 			}
 		}
+	}
+	
+	public int getNoOfFilesRead(){
+		return noOfFilesRead;
 	}
 	
 }
