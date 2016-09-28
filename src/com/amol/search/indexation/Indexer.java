@@ -2,7 +2,6 @@ package com.amol.search.indexation;
 
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.lucene.analysis.Analyzer;

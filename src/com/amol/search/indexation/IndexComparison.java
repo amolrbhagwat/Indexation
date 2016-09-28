@@ -2,7 +2,6 @@ package com.amol.search.indexation;
 
 import java.nio.file.Paths;
 
-import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.core.KeywordAnalyzer;
 import org.apache.lucene.analysis.core.SimpleAnalyzer;
 import org.apache.lucene.analysis.core.StopAnalyzer;
