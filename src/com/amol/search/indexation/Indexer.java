@@ -27,8 +27,14 @@ public class Indexer {
 	public static void main(String args[]) throws Exception{
 		String indexPath, inputPath;
 				
-		inputPath = "/home/amol/Documents/Search/Assignments/A1/corpus";
-		indexPath = "/home/amol/Documents/Search/Assignments/A1/index";
+		if(args.length != 2){ 
+			System.out.println("Incorrect number of arguments!"); 
+		    System.out.println("Parameters are: index_dir input_dir"); 
+		    System.exit(1); 
+		} 
+		 
+		indexPath = args[0]; 
+		inputPath = args[1];
 		
 		DocumentReader docReader = new DocumentReader(inputPath);
 		

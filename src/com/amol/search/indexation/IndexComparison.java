@@ -18,16 +18,14 @@ public class IndexComparison {
 	static String indexPath;
 	
 	public static void main(String args[]) throws Exception{
-		/*if(args.length != 2){ 
+		if(args.length != 2){ 
 	      System.out.println("Incorrect number of arguments!"); 
 	      System.out.println("Parameters are: index_dir input_dir"); 
 	      System.exit(1); 
 	    } 
 	 
 	    indexPath = args[0]; 
-	    String inputPath = args[1]; */
-		String inputPath = "/home/amol/Documents/Search/Assignments/A1/corpus";
-		indexPath = "/home/amol/Documents/Search/Assignments/A1/index";
+	    String inputPath = args[1];
 	    
 	    Indexer.generateIndex(indexPath + "/keyword", new DocumentReader(inputPath), new KeywordAnalyzer());
 	    Indexer.generateIndex(indexPath + "/simple", new DocumentReader(inputPath), new SimpleAnalyzer());
