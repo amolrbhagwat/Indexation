@@ -26,9 +26,13 @@ public class IndexComparison {
 	    indexPath = args[0]; 
 	    String inputPath = args[1];
 	    
+	    System.out.println("Generating index with Keyword Analyzer");
 	    Indexer.generateIndex(indexPath + "/keyword", new DocumentReader(inputPath), new KeywordAnalyzer());
+	    System.out.println("Generating index with Simple Analyzer");
 	    Indexer.generateIndex(indexPath + "/simple", new DocumentReader(inputPath), new SimpleAnalyzer());
+	    System.out.println("Generating index with Stop Analyzer");
 	    Indexer.generateIndex(indexPath + "/stop", new DocumentReader(inputPath), new StopAnalyzer());
+	    System.out.println("Generating index with Standard Analyzer");
 	    Indexer.generateIndex(indexPath + "/standard", new DocumentReader(inputPath), new StandardAnalyzer());
 	    
 	    showStats();
