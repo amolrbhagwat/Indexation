@@ -11,6 +11,8 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StringField;
 import org.apache.lucene.document.TextField;
+import org.apache.lucene.index.DirectoryReader;
+import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
@@ -31,8 +33,15 @@ public class Indexer {
 		
 		DocumentReader docReader = new DocumentReader(inputPath);
 		
-		generateIndex(indexPath, docReader, new StandardAnalyzer());	
+		generateIndex(indexPath, docReader, new StandardAnalyzer());
 		
+		System.out.println("Number of documents in the corpus: " + getDocCountFromIndex(indexPath));
+		
+	}
+	
+	static int getDocCountFromIndex(String indexPath) throws Exception{
+		IndexReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexPath)));	
+		return reader.maxDoc();
 	}
 	
 	static void generateIndex(String indexPath, DocumentReader docReader, Analyzer analyzer) throws Exception{
