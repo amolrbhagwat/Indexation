@@ -35,8 +35,6 @@ public class Indexer {
 		
 		generateIndex(indexPath, docReader, new StandardAnalyzer());
 		
-		System.out.println("Number of documents in the corpus: " + getDocCountFromIndex(indexPath));
-		
 	}
 	
 	static int getDocCountFromIndex(String indexPath) throws Exception{
@@ -77,6 +75,7 @@ public class Indexer {
 		writer.close();
 		
 		System.out.println("Indexed " + docReader.getNoOfFilesRead() + " files.");
+		System.out.println("Number of documents in the corpus: " + getDocCountFromIndex(indexPath));
 	}
 	
 	static Map<String, String> getFieldDataFromDoc(Node doc, String[] fieldsToGet){
