@@ -28,9 +28,10 @@ $ java -jar Assignment1.jar index_dir input_dir
 
 ### Task 1: Generating Lucene Index for Experiment Corpus (AP89)
 
-1. How many documents are there in this corpus? **84474**
-
-2. Why different fields are treated with different kinds of java class? i.e., StringField and TextField are used for different fields in this example, why?
+1. **How many documents are there in this corpus?**
+  - 84474
+2. **Why different fields are treated with different kinds of java class? i.e., StringField and TextField are used for different fields in this example, why?**
+  - For the StringField class, the entire String value is indexed as a single token. On the other hand, tokenization is applied to TextField, so as to facilitate searching and indexing.
 
 ### Task 2: Test different analyzers
 
