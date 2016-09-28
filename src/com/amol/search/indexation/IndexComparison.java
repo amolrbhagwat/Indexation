@@ -12,7 +12,6 @@ import org.apache.lucene.index.MultiFields;
 import org.apache.lucene.index.Terms;
 import org.apache.lucene.index.TermsEnum;
 import org.apache.lucene.store.FSDirectory;
-import org.apache.lucene.util.BytesRef;
 
 public class IndexComparison {
 	static String indexPath;
@@ -72,9 +71,8 @@ public class IndexComparison {
 		long count = 0;
 		
 		TermsEnum iterator = vocabulary.iterator();
-		BytesRef byteRef;
 		
-		while((byteRef = iterator.next()) != null) {
+		while(iterator.next() != null) {
 			count++;
 		}
 		
