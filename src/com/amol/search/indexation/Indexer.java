@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -30,16 +31,16 @@ public class Indexer {
 		
 		DocumentReader docReader = new DocumentReader(inputPath);
 		
-		generateIndex(indexPath, docReader);	
+		generateIndex(indexPath, docReader, new StandardAnalyzer());	
 		
 	}
 	
-	static void generateIndex(String indexPath, DocumentReader docReader) throws Exception{
+	static void generateIndex(String indexPath, DocumentReader docReader, Analyzer analyzer) throws Exception{
 		String[] fields = {"DOCNO", "HEAD", "BYLINE", "DATELINE", "TEXT"};
 		
 		Directory indexDir = FSDirectory.open(Paths.get(indexPath));
 		
-		IndexWriterConfig iwc = new IndexWriterConfig(new StandardAnalyzer());
+		IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
 		iwc.setOpenMode(OpenMode.CREATE);
 		
 		IndexWriter writer = new IndexWriter(indexDir, iwc);
